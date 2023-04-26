@@ -22,6 +22,11 @@ const Cart = ({ ingredients, totalCount, setTotalCount }) => {
       setOrderCount(orderCount - 1);
     }
   };
+
+  const addToCartHeader = () => {
+    setTotalCount(0);
+    setOrderCount(0);
+  };
   return (
     <CartContainer>
       <div>
@@ -57,7 +62,7 @@ const Cart = ({ ingredients, totalCount, setTotalCount }) => {
           <Input value={orderCount}></Input>
           <Button onClick={handleIncrement}>+</Button>
         </DivButtons>
-        <button>Adicionar</button>
+        <button onClick={addToCartHeader}>Adicionar</button>
       </DivAddOrder>
     </CartContainer>
   );

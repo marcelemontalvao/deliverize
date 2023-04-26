@@ -33,8 +33,8 @@ export const HeaderContainer = styled.header`
     div:nth-child(2) section {
       display: flex;
       justify-content: space-between;
-      background: blue;
-      width: 200px;
+      color: #ed3237;
+      height: 40px;
     }
 
     input {
@@ -52,6 +52,10 @@ export const HeaderContainer = styled.header`
 
     img {
       margin: 0;
+    }
+
+    .margin-r {
+      margin-right: 15px;
     }
   }
 `;
