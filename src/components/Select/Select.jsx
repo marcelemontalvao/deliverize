@@ -2,7 +2,9 @@ import { useState } from "react";
 import { SelectC, SelectOption, SelectW, Title } from "./SelectStyles";
 
 const Select = ({ title, options }) => {
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState(
+    "R. Antonio Braune, 222"
+  );
 
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);

@@ -92,6 +92,8 @@ export const DivButtons = styled.div`
   height: 40px;
 `;
 export const DivAddOrder = styled.div`
+  margin-bottom: 50px;
+
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
@@ -108,5 +110,10 @@ export const DivAddOrder = styled.div`
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
+  }
+
+  @media (min-width: 900px) {
+    margin-bottom: 0px;
+    margin-top: 20px;
   }
 `;

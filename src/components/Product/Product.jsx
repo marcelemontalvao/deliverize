@@ -4,7 +4,7 @@ const Product = ({ product }) => {
   return (
     <ProductContainer>
       <img src={hamburguer} alt="" />
-      {/* <div>
+      <div>
         <p>{product.nm_product}</p>
         <p>{product.description}</p>
         <div>
@@ -21,7 +21,7 @@ const Product = ({ product }) => {
             })}
           </span>
         </div>
-      </div> */}
+      </div>
     </ProductContainer>
   );
 };

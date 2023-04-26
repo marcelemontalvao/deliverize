@@ -48,11 +48,11 @@ const Cart = ({ ingredients, totalCount, setTotalCount }) => {
         <DivCutlery>
           <div>
             <span>Sim</span>
-            <CustomRadio type="radio" />
+            <CustomRadio type="radio" name="talher" />
           </div>
           <div>
             <span>Não</span>
-            <CustomRadio type="radio" />
+            <CustomRadio type="radio" name="talher" />
           </div>
         </DivCutlery>
       </div>
