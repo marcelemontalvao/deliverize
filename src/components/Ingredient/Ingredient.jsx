@@ -11,7 +11,6 @@ const Ingredient = ({
   setTotalCount,
   resetIngredients,
   setResetIngredients,
-  ingredientsOrder,
   setIngredientsOrder,
 }) => {
   const [count, setCount] = useState(0);
