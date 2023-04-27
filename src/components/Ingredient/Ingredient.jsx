@@ -4,8 +4,14 @@ import {
   Input,
   DivButtons,
 } from "./IngredientStyles";
-import { useState } from "react";
-const Ingredient = ({ ingredient, totalCount, setTotalCount }) => {
+import { useState, useEffect } from "react";
+const Ingredient = ({
+  ingredient,
+  totalCount,
+  setTotalCount,
+  resetIngredients,
+  setResetIngredients,
+}) => {
   const [count, setCount] = useState(0);
   const handleIncrement = () => {
     if (count < 8 && totalCount < 8) {
@@ -20,6 +26,13 @@ const Ingredient = ({ ingredient, totalCount, setTotalCount }) => {
       setTotalCount(totalCount - 1);
     }
   };
+
+  useEffect(() => {
+    if (resetIngredients) {
+      setCount(0);
+      setResetIngredients(false);
+    }
+  }, [resetIngredients]);
   return (
     <IngredientContainer>
       <div>

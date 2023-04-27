@@ -12,6 +12,7 @@ import { useState } from "react";
 
 const Cart = ({ ingredients, totalCount, setTotalCount }) => {
   const [orderCount, setOrderCount] = useState(0);
+  const [resetIngredients, setResetIngredients] = useState(false);
 
   const handleIncrement = () => {
     setOrderCount(orderCount + 1);
@@ -26,6 +27,7 @@ const Cart = ({ ingredients, totalCount, setTotalCount }) => {
   const addToCartHeader = () => {
     setTotalCount(0);
     setOrderCount(0);
+    setResetIngredients(true);
   };
   return (
     <CartContainer>
@@ -39,6 +41,8 @@ const Cart = ({ ingredients, totalCount, setTotalCount }) => {
             ingredient={ingredient}
             totalCount={totalCount}
             setTotalCount={setTotalCount}
+            resetIngredients={resetIngredients}
+            setResetIngredients={setResetIngredients}
             key={index}
           />
         ))}
