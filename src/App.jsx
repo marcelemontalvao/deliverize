@@ -7,7 +7,7 @@ function App() {
   const [product, setProduct] = useState({});
   const [ingredients, setIngredients] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
-
+  const [cartHeaderCount, setCartHeaderCount] = useState(0);
   useEffect(() => {
     async function getProduct() {
       try {
@@ -25,12 +25,14 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header cartHeaderCount={cartHeaderCount} />
       <Container
         totalCount={totalCount}
         setTotalCount={setTotalCount}
         product={product}
         ingredients={ingredients}
+        cartHeaderCount={cartHeaderCount}
+        setCartHeaderCount={setCartHeaderCount}
       />
     </>
   );

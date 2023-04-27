@@ -10,8 +10,15 @@ import {
 } from "./CartStyles";
 import { useState } from "react";
 
-const Cart = ({ ingredients, totalCount, setTotalCount }) => {
-  const [orderCount, setOrderCount] = useState(0);
+const Cart = ({
+  ingredients,
+  totalCount,
+  setTotalCount,
+  cartHeaderCount,
+  setCartHeaderCount,
+}) => {
+  console.log(cartHeaderCount);
+  const [orderCount, setOrderCount] = useState(1);
   const [resetIngredients, setResetIngredients] = useState(false);
 
   const handleIncrement = () => {
@@ -19,15 +26,16 @@ const Cart = ({ ingredients, totalCount, setTotalCount }) => {
   };
 
   const handleDecrement = () => {
-    if (orderCount > 0) {
+    if (orderCount > 1) {
       setOrderCount(orderCount - 1);
     }
   };
 
   const addToCartHeader = () => {
     setTotalCount(0);
-    setOrderCount(0);
+    setOrderCount(1);
     setResetIngredients(true);
+    setCartHeaderCount(cartHeaderCount + 1);
   };
   return (
     <CartContainer>

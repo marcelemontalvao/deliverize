@@ -33,17 +33,16 @@ const Ingredient = ({
       setResetIngredients(false);
     }
   }, [resetIngredients]);
+
+  const formatterPrices = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
   return (
     <IngredientContainer>
       <div>
         <p>{ingredient.nm_item}</p>
-        <p>
-          +
-          {ingredient.vl_item.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-          })}
-        </p>
+        <p>+ {formatterPrices.format(ingredient.vl_item)}</p>
       </div>
       <DivButtons>
         <Button onClick={handleDecrement}>-</Button>

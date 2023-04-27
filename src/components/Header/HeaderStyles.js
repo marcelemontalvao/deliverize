@@ -59,3 +59,26 @@ export const HeaderContainer = styled.header`
     }
   }
 `;
+
+export const DivNumberCart = styled.div`
+  position: absolute;
+  left: 20px;
+  top: -5px;
+  background-color: #f09035;
+  border-radius: 50%;
+  width: 16px !important;
+  height: 16px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  span {
+    font-size: 10px;
+    color: #ffffff;
+  }
+`;
+
+export const DivCartImg = styled.div`
+  position: relative;
+  height: 10px;
+`;
