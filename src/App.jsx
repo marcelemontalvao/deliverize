@@ -8,6 +8,17 @@ function App() {
   const [ingredients, setIngredients] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [cartHeaderCount, setCartHeaderCount] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [ingredientsOrder, setIngredientsOrder] = useState([]);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   useEffect(() => {
     async function getProduct() {
       try {
@@ -33,6 +44,12 @@ function App() {
         ingredients={ingredients}
         cartHeaderCount={cartHeaderCount}
         setCartHeaderCount={setCartHeaderCount}
+        openModal={openModal}
+        closeModal={closeModal}
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        ingredientsOrder={ingredientsOrder}
+        setIngredientsOrder={setIngredientsOrder}
       />
     </>
   );

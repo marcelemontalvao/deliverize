@@ -11,6 +11,8 @@ const Ingredient = ({
   setTotalCount,
   resetIngredients,
   setResetIngredients,
+  ingredientsOrder,
+  setIngredientsOrder,
 }) => {
   const [count, setCount] = useState(0);
   const handleIncrement = () => {
@@ -29,6 +31,11 @@ const Ingredient = ({
 
   useEffect(() => {
     if (resetIngredients) {
+      const object = {
+        ...ingredient,
+        count,
+      };
+      setIngredientsOrder((preview) => [...preview, object]);
       setCount(0);
       setResetIngredients(false);
     }

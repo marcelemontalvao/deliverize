@@ -9,15 +9,23 @@ import {
   DivAddOrder,
 } from "./CartStyles";
 import { useState } from "react";
+import Modal from "../Modal/Modal";
+import LiModal from "../LiModal/LiModal";
 
 const Cart = ({
+  product,
   ingredients,
   totalCount,
   setTotalCount,
   cartHeaderCount,
   setCartHeaderCount,
+  openModal,
+  closeModal,
+  isModalOpen,
+  setIsModalOpen,
+  ingredientsOrder,
+  setIngredientsOrder,
 }) => {
-  console.log(cartHeaderCount);
   const [orderCount, setOrderCount] = useState(1);
   const [resetIngredients, setResetIngredients] = useState(false);
 
@@ -32,11 +40,17 @@ const Cart = ({
   };
 
   const addToCartHeader = () => {
+    ingredientsOrder.splice(0, ingredientsOrder.length);
+    setResetIngredients(true);
     setTotalCount(0);
     setOrderCount(1);
-    setResetIngredients(true);
     setCartHeaderCount(cartHeaderCount + 1);
+    openModal();
   };
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <CartContainer>
       <div>
@@ -51,6 +65,8 @@ const Cart = ({
             setTotalCount={setTotalCount}
             resetIngredients={resetIngredients}
             setResetIngredients={setResetIngredients}
+            ingredientsOrder={ingredientsOrder}
+            setIngredientsOrder={setIngredientsOrder}
             key={index}
           />
         ))}
@@ -74,8 +90,27 @@ const Cart = ({
           <Input value={orderCount}></Input>
           <Button onClick={handleIncrement}>+</Button>
         </DivButtons>
-        <button onClick={addToCartHeader}>Adicionar</button>
+        <button onClick={() => addToCartHeader()}>Adicionar</button>
       </DivAddOrder>
+      {isModalOpen && (
+        <Modal
+          show={openModal}
+          onClose={handleCloseModal}
+          closeModal={closeModal}
+          isModalOpen={isModalOpen}
+        >
+          <div>
+            <span>Adicionado com Sucesso</span>
+          </div>
+          <p>{product.nm_product}</p>
+          <span>Ingredientes:</span>
+          <ul>
+            {ingredientsOrder.map((ingredient, index) => (
+              <LiModal ingredient={ingredient} key={index} />
+            ))}
+          </ul>
+        </Modal>
+      )}
     </CartContainer>
   );
 };
